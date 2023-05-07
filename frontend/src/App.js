@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { ListItem, List } from '@mui/material';
 
 const create = () => {
-  return axios.post('http://localhost:3001/api/timekeeping', {
+  return axios.post('http://localhost:3001/api/timekeepin', {
     description: "debugging",
     date: new Date(),
     time: 8
@@ -12,7 +12,7 @@ const create = () => {
 }
 
 const getEntries = () => {
-  return axios.get('http://localhost:3001/api/timekeeping')
+  return axios.get('http://localhost:3001/api/users')
 }
 
 function App() {
