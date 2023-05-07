@@ -5,6 +5,7 @@ const express = require("express");
 const app = express();
 const cors = require('cors')
 const timkeepingRouter = require("./routes/TimekeepingRoutes");
+const userRouter = require("./routes/UserRoutes");
 
 //middleware
 app.use(cors({
@@ -18,6 +19,7 @@ app.listen(3001, () => {
 });
 
 app.use("/api/timekeeping", timkeepingRouter);
+app.use("/api/users", userRouter)
 
 module.exports = app;
 
