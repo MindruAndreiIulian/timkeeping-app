@@ -1,0 +1,44 @@
+const userEntryService = require('../services/UserEntryService');
+
+exports.getAllUserEntries = async (req, res) => {
+    try {
+        const entries = await userEntryService.getAllUserEntries();
+        res.json({ data: entries, status: "succes" });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
+exports.createUserEntry = async (req, res) => {
+    try {
+        const entry = await userEntryService.createUserEntry(req.body);
+        res.json({ data: entry, status: "succes" });
+    }
+    catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
+exports.getUserEntryById = async (req, res) => {
+    try {
+        const entry = await userEntryService.getUserEntryById(req.params.id);
+        res.json({ data: entry, status: "succes" });
+    }
+    catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
+exports.updateUserEntry = async (req, res) => {
+    try {
+        const entry = await userEntryService.updateUserEntry(req.params.id, req.body);
+        res.json({ data: entry, status: "succes" });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
+exports.deleteUserEntry = async (req, res) => {
+    try {
+        const entry = await userEntryService.deleteUserEntry(req.params.id);
+        res.json({ data: entry, status: "success" });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
