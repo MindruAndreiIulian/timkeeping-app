@@ -1,17 +1,24 @@
 const UserEntry = require('../models/UserEntry');
 
 exports.getAllUserEntries = async () => {
-    return await UserEntry.find();
+    return UserEntry.find();
 };
 exports.createUserEntry = async (entry) => {
-    return await UserEntry.create(entry);
+    return UserEntry.create(entry);
 };
 exports.getUserEntryById = async (id) => {
-    return await UserEntry.findById(id);
+    return UserEntry.findById(id);
 };
 exports.updateUserEntry = async (id, entry) => {
-    return await UserEntry.findByIdAndUpdate(id, entry);
+    return UserEntry.findByIdAndUpdate(id, entry);
 };
 exports.deleteUserEntry = async (id) => {
-    return await UserEntry.findByIdAndDelete(id);
+    return UserEntry.findByIdAndDelete(id);
 };
+exports.setInactiveUser = async (id) => {
+    const user = await UserEntry.findById(id);
+    if (!user)
+        throw new Error('user not found')
+
+    return UserEntry.findByIdAndUpdate(id, { isActive: false })
+}

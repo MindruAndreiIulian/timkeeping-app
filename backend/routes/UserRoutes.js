@@ -5,8 +5,14 @@ const {
     getUserEntryById,
     updateUserEntry,
     deleteUserEntry,
+    patchInactiveUser
+
   } = require("../controllers/UserEntryController");
   const router = express.Router();
-  router.route("/").get(getAllUserEntries).post(createUserEntry);
-router.route("/:id").get(getUserEntryById).put(updateUserEntry).delete(deleteUserEntry);
-module.exports = router;
+  router.route("/").get(getAllUserEntries)
+  router.route("/").post(createUserEntry);
+  router.route("/:id").get(getUserEntryById)
+  router.route("/:id").put(updateUserEntry)
+  router.route("/:id").delete(deleteUserEntry);
+  router.route("/:id").patch(patchInactiveUser);
+  module.exports = router;

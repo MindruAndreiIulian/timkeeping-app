@@ -13,6 +13,7 @@ exports.getEntryById = async (id) => {
  
 exports.updateEntry = async (id, entry) => {
   return await TimeEntry.findByIdAndUpdate(id, entry);
+ 
 };
  
 exports.deleteEntry = async (id) => {

@@ -19,7 +19,7 @@ app.listen(3001, () => {
 });
 
 app.use("/api/timekeeping", timkeepingRouter);
-app.use("/api/users", userRouter)
+app.use("/api/user", userRouter)
 
 module.exports = app;
 

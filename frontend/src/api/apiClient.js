@@ -50,9 +50,17 @@ const put = async (url, data = {}) => {
   }
 };
 
-const del = async (url) => {
+const remove = async (url) => {
   try {
     const response = await api.delete(url);
+    return response.data;
+  } catch (error) {
+    handleRequestError(error);
+  }
+};
+const patch = async (url, data = {}) => {
+  try {
+    const response = await api.patch(url, data);
     return response.data;
   } catch (error) {
     handleRequestError(error);
@@ -63,7 +71,8 @@ const apiClient = {
   get,
   post,
   put,
-  delete: del,
+  remove,
+  patch,
 };
 
 export default apiClient;

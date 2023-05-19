@@ -9,6 +9,10 @@ const userEntrySchema = new Schema({
         type: Date,
         default: Date.now,
     },
+    isActive:{
+        type: Boolean,
+        default: true
+    }
 });
 
 module.exports = mongoose.model("UserEntry", userEntrySchema);
